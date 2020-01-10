@@ -1,16 +1,18 @@
 var mysql = require('mysql');
 var con = mysql.createConnection({
     host: "localhost",
-    user: "username",
+    user: "root",
     password: "password",
-    database: "<name of your database>"
+    database: "my_database"
     });
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("db Connected");
-    });
+con.connect((err) => {
+    if (err) {
+        console.error("Failed to connect to database- throwing error:");
+        throw err;
+    }
+        console.log("Connected to database succesfully.");
+    }
+);
 
 module.exports.mycon = con;
-
-//this is just a config file to connect to your mysql database

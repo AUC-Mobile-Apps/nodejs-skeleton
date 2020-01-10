@@ -9,7 +9,6 @@ router.use(bodyParser.json());
 // Sample Post request
 router.post('/mypostapi', function (req, res) {
   console.log("got post request"); 
-  var date = new Date();
   var sql = "your raw sql query here"
   db.mycon.query(sql, function (err, result) {
     console.log("Result: " + JSON.stringify(result));
@@ -35,5 +34,11 @@ router.get('/mygetapi', function (req, res) {
     }
   });
 });
+
+router.get('/hw', function (req, res) {
+  console.log("got get request for hello world");
+  res.json({"sample_string": "hello, world!"});
+});
+
 
 module.exports = router;

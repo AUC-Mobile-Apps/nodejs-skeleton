@@ -4,17 +4,17 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "./node_modules/nodemon/bin/nodemon.js server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ali Khaled",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "nodemon": "^1.18.4"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^5.0.1"
+    "mysql": "^2.17.1"
   }
 }
