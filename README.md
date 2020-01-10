@@ -45,17 +45,20 @@ brew services start mariadb
 In your terminal:
 
 ```bash
-sudo apt update
+sudo apt-get update
 sudo apt-get install nodejs npm mariadb-client mariadb-server git
 ```
 
 That's it!
 
-On some versions of Linux, if the command node doesn't work, you may need to do this:
+On some versions of Linux, if the command `node` doesn't work, you may need to do this:
 
 ```bash
 ln -s /usr/bin/nodejs /usr/bin/node
 ```
+
+## Other Linux
+Chances are, if you're using another Linux, you know what you're doing and can probably install these dependencies on your own. :)
 
 # Usage
 These steps are applicable for all platforms, including Windows.
