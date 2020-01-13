@@ -80,7 +80,8 @@ cd nodejs-api-skeleton
 # Install package dependencies
 npm install
 # Setup Database
-cat Database.sql | sudo mysql -u root # DO NOT WRITE THE "SUDO" ON WINDOWS
+## DO NOT WRITE THE "SUDO" ON WINDOWS (YOU'RE ALREADY RUNNING AS ADMIN AND WINDOWS DOESN'T HAVE SUDO)
+cat Database.sql | sudo mysql -u root
 ```
 ## From now on
 ```bash
