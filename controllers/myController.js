@@ -40,6 +40,7 @@ router.get('/hw', function (req, res) {
   });
 });
 
+// Added in today's session
 router.post('/add', function (req, res) {
   let body = req.body; // let is like var, but scoped
   let num1 = body.num1;
