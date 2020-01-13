@@ -14,13 +14,11 @@ router.post('/mypostapi', function (req, res) {
     console.log("Result: " + JSON.stringify(result));
     if(err){
       res.send(err);
-    }else {
+    } else {
       //your code here 
     }
       });
-  });
-  
-
+});
 router.get('/mygetapi', function (req, res) {
   console.log("got get request"); 
   let sql = "your raw sql query here"
@@ -37,12 +35,38 @@ router.get('/mygetapi', function (req, res) {
 
 router.get('/hw', function (req, res) {
   console.log("got get request for hello world");
-  let x = 42;
-  let y = 3;
   res.json({
-    "number": x / y
+    "sample_string": "Hello world!"
   });
 });
+
+router.post('/add', function (req, res) {
+  let body = req.body; // let is like var, but scoped
+  let num1 = body.num1;
+  let num2 = body.num2;
+
+  let result = num1 + num2;
+
+  return res.json({
+    "result": result
+  });
+});
+
+router.get('/countrycodes', function (req, res) {
+  var sql = "Select * from Country;"
+  db.mycon.query(sql, function (err, result) {
+    console.log("Result: " + JSON.stringify(result));
+    if(err){
+      res.send(err);
+    }else {
+      for (let i = 0; i < result.length; i++) {
+        result[i]["code"] = "😂"; // Replace all country codes with annoying emoji
+      }
+      return res.send(result);
+    }
+  });
+});
+    
 
 
 module.exports = router;

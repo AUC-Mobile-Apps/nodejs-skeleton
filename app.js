@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 
 //importing the controller
 let mycontroller =
-  require('./controllers/mycontroller');
+  require('./controllers/myController');
 
 //creating the route for the controller
 app.use('/mycontroller', mycontroller);
