@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var db = require('./db');
 
 app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -9,14 +8,23 @@ app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
     next();
   });
-//the above function just allows for requests and responses to be 
-//passed to and from backend and frontend 
+// the above function just allows for requests and responses to be 
+// passed to and from backend and frontend
 
 //importing the controller
-var myController = require('./controllers/myController');
+let mycontroller =
+  require('./controllers/mycontroller');
 
 //creating the route for the controller
-app.use('/myroute', myController);
+app.use('/myroute', mycontroller);
+
+var port = process.env.PORT || 3000;
+
+// Start running the server
+app.listen(port, function() {
+  console.log(`Server listening on 'http://localhost:${port}'.`);
+  console.log(`You can visit http://localhost:3000/myroute/hw in your browser as a preliminary test.`);
+});
 
 
 module.exports = app;

@@ -1,6 +1,13 @@
 # Node API Skeleton
 This is a simple API skeleton for a Node.js/MySQL-based applications.
 
+# Recommended Applications
+* Get [Postman](https://www.getpostman.com/downloads/).
+    * Available on all platforms. Postman allows you to test your API endpoints thoroughly and without a frontend application or a web browser.
+* Get [Visual Studio Code](https://code.visualstudio.com).
+    * Available on Windows, Mac and Linux, VS Code is a powerful text editor with an integrated terminal and a ton of features for working with Node.js-based servers. Most Node.js developers swear by it, myself and the original creator of this codebase included.
+    * [Atom](https://atom.io) by GitHub may also work, but is slow and has less features out of the box. Both are owned by Microsoft, anyhow, so use Microsoft's flagship product instead.
+
 # Dependencies
 * Git
 * MySQL
@@ -16,14 +23,14 @@ Set-ExecutionPolicy AllSigned
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 
-Sometimes it may ask you for permissions again. Just type 'A'.
+Sometimes it may ask you for permissions again. Just type 'A' and press enter.
 
 Run these in Powershell as Administrator:
 ```powershell
 choco install nodejs-lts mariadb git
 ```
 
-Then restart your computer.
+Then **restart your computer**.
 
 ## macOS
 First, install the [brew](https://brew.sh) package manager. This allows you to install packages in a dependencies fashion to *apt-get* on Linux.
@@ -80,7 +87,7 @@ cat Database.sql | sudo mysql -u root # DO NOT WRITE THE "SUDO" ON WINDOWS
 npm run start
 ```
 
-You can then visit http://localhost:3000/myroute/hw in your web browser or Postman to verify it works.
+You can then visit http://localhost:3000/myroute/hw in your web browser or GET it via Postman to verify it works.
 
 # License, Acknowledgment
 MIT License, see 'LICENSE'.
