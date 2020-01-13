@@ -17,7 +17,7 @@ This is a simple API skeleton for a Node.js/MySQL-based applications.
 ## Windows
 First, we install the [chocolatey](https://chocolatey.org) package manager. This allows you to install dependencies in a similar fashion to *apt-get* on Linux.
 
-To install it, open PowerShell as Administrator, and then type:
+To install it, open PowerShell as Administrator, (PLEASE DON'T USE CMD UNDER ANY CIRCUMSTANCE) and then type:
 ```powershell
 Set-ExecutionPolicy AllSigned
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -80,7 +80,8 @@ cd nodejs-api-skeleton
 # Install package dependencies
 npm install
 # Setup Database
-cat Database.sql | sudo mysql -u root # DO NOT WRITE THE "SUDO" ON WINDOWS
+cat Database.sql | sudo mysql -u root # Linux/macOS
+cat Database.sql | mysql -u root # Windows
 ```
 ## From now on
 ```bash
@@ -88,6 +89,14 @@ npm run start
 ```
 
 You can then visit http://localhost:3000/myroute/hw in your web browser or GET it via Postman to verify it works.
+
+## Connecting to the database via terminal
+
+```bash
+mysql -u root -p
+```
+
+Then write your password (which is 'password' by default.)
 
 # License, Acknowledgment
 MIT License, see 'LICENSE'.

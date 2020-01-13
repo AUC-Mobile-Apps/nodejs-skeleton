@@ -16,14 +16,14 @@ let mycontroller =
   require('./controllers/mycontroller');
 
 //creating the route for the controller
-app.use('/myroute', mycontroller);
+app.use('/mycontroller', mycontroller);
 
 var port = process.env.PORT || 3000;
 
 // Start running the server
 app.listen(port, function() {
   console.log(`Server listening on 'http://localhost:${port}'.`);
-  console.log(`You can visit http://localhost:3000/myroute/hw in your browser as a preliminary test.`);
+  console.log(`You can visit http://localhost:${port}/myroute/hw in your browser as a preliminary test.`);
 });
 
 

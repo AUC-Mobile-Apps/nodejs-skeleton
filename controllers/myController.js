@@ -37,7 +37,11 @@ router.get('/mygetapi', function (req, res) {
 
 router.get('/hw', function (req, res) {
   console.log("got get request for hello world");
-  res.json({"sample_string": "hello, world!"});
+  let x = 42;
+  let y = 3;
+  res.json({
+    "number": x / y
+  });
 });
 
 
