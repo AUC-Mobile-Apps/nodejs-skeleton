@@ -80,9 +80,12 @@ cd nodejs-api-skeleton
 # Install package dependencies
 npm install
 # Setup Database
-cat Database.sql | sudo mysql -u root # Linux/macOS
-cat Database.sql | mysql -u root # Windows
+sudo mysql -u root # Linux/macOS
+mysql -u root # Windows
 ```
+
+Then copy and paste the contents of `Database.sql` into the mysql prompt, then Ctrl+D to exit.
+
 ## From now on
 ```bash
 npm run start

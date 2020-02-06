@@ -6,7 +6,7 @@ var db = require('../db');
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-// Sample Post request
+// Sample POST request
 router.post('/mypostapi', function (req, res) {
   console.log("got post request"); 
   var sql = "your raw sql query here"
@@ -19,6 +19,8 @@ router.post('/mypostapi', function (req, res) {
     }
       });
 });
+
+// Sample GET Request
 router.get('/mygetapi', function (req, res) {
   console.log("got get request"); 
   let sql = "your raw sql query here"
@@ -33,6 +35,9 @@ router.get('/mygetapi', function (req, res) {
   });
 });
 
+// ---
+
+// Hello World
 router.get('/hw', function (req, res) {
   console.log("got get request for hello world");
   res.json({
@@ -40,7 +45,7 @@ router.get('/hw', function (req, res) {
   });
 });
 
-// Added in today's session
+// Basic Addition POST request
 router.post('/add', function (req, res) {
   let body = req.body; // let is like var, but scoped
   let num1 = body.num1;
@@ -53,6 +58,7 @@ router.post('/add', function (req, res) {
   });
 });
 
+// Basic SQL POST Request
 router.get('/countrycodes', function (req, res) {
   var sql = "Select * from Country;"
   db.mycon.query(sql, function (err, result) {

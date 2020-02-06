@@ -12,18 +12,18 @@ app.use(function(req, res, next) {
 // passed to and from backend and frontend
 
 //importing the controller
-let mycontroller =
-  require('./controllers/myController');
+let myController = require('./controllers/myController');
 
 //creating the route for the controller
-app.use('/mycontroller', mycontroller);
+let controllerPath = '/myController'
+app.use(controllerPath, myController);
 
 var port = process.env.PORT || 3000;
 
 // Start running the server
 app.listen(port, function() {
   console.log(`Server listening on 'http://localhost:${port}'.`);
-  console.log(`You can visit http://localhost:${port}/myroute/hw in your browser as a preliminary test.`);
+  console.log(`You can visit http://localhost:${port}/${controllerPath}/hw in your browser as a preliminary test.`);
 });
 
 
