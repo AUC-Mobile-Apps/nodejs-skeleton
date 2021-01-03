@@ -1,5 +1,5 @@
 FLUSH PRIVILEGES;
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+ALTER USER "root"@"localhost" IDENTIFIED BY "password";
 Create database my_database;
 
 Create table Country(
@@ -9,5 +9,6 @@ Create table Country(
 );
 
 Insert into Country values
-    ('Egypt', 'EG'),
-    ('United States', 'US');
+    ("Egypt", "EG"),
+    ("United States", "US")
+    ;

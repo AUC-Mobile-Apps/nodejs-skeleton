@@ -1,12 +1,14 @@
 # Node API Skeleton
 This is a simple API skeleton for a Node.js/MySQL-based applications.
 
+This is designed for a Mobile Applications course. If you want a more in-depth introduction to backend development, this will not be sufficient and I recommend one of the other million on the internet.
+
 # Recommended Applications
 * Get [Postman](https://www.getpostman.com/downloads/).
     * Available on all platforms. Postman allows you to test your API endpoints thoroughly and without a frontend application or a web browser.
 * Get [Visual Studio Code](https://code.visualstudio.com).
     * Available on Windows, Mac and Linux, VS Code is a powerful text editor with an integrated terminal and a ton of features for working with Node.js-based servers. Most Node.js developers swear by it, myself and the original creator of this codebase included.
-    * [Atom](https://atom.io) by GitHub may also work, but is slow and has less features out of the box. Both are owned by Microsoft, anyhow, so use Microsoft's flagship product instead.
+    * Some people also like Atom, Sublime Text, Vim… Figure out what works for you.
 
 # Dependencies
 * Git
@@ -20,10 +22,10 @@ First, we install the [chocolatey](https://chocolatey.org) package manager. This
 To install it, open PowerShell as Administrator, (PLEASE DON'T USE CMD UNDER ANY CIRCUMSTANCE) and then type:
 ```powershell
 Set-ExecutionPolicy AllSigned
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
 ```
 
-Sometimes it may ask you for permissions again. Just type 'A' and press enter.
+Sometimes it may ask you for permissions again. Just type "A" and press enter.
 
 Run these in Powershell as Administrator:
 ```powershell
@@ -65,13 +67,13 @@ ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
 ## Other Linux
-Chances are, if you're using another Linux, you know what you're doing and can probably install these dependencies on your own. :)
+Chances are, if you"re using another Linux, you know what you"re doing and can probably install these dependencies on your own. :)
 
 # Usage
 These steps are applicable for all platforms, including Windows.
 
 Inside your Terminal or Powershell Admin Instance:
-## One-time steps
+## First-time steps
 ```bash
 # Clone the repository
 git clone https://github.com/donn/nodejs-api-skeleton
@@ -84,14 +86,14 @@ sudo mysql -u root # Linux/macOS
 mysql -u root # Windows
 ```
 
-Then copy and paste the contents of `Database.sql` into the mysql prompt, then Ctrl+D to exit.
+Then copy and paste the contents of `Database.sql` into the mysql prompt, press return, then Ctrl+D to exit.
 
 ## From now on
 ```bash
-npm run start
+npm run dev
 ```
 
-You can then visit http://localhost:3000/myroute/hw in your web browser or GET it via Postman to verify it works.
+You can then visit http://localhost:3000/health in your web browser or GET it via Postman to verify it works.
 
 ## Connecting to the database via terminal
 
@@ -99,10 +101,40 @@ You can then visit http://localhost:3000/myroute/hw in your web browser or GET i
 mysql -u root -p
 ```
 
-Then write your password (which is 'password' by default.)
+Then write your password (which is "password" by default.)
+
+# File structure
+## package.json
+This is the project manifest for your backend.
+
+You'll note that I defined two commands: `dev` and `start`.
+
+`dev` uses a library called nodemon, which reloads the app every time there is a change to the files. This is useful during, you guessed it, development! `start` simply runs the app, on the other hand, useful for when you're running on an actual server.
+
+### Packages used
+Node.js allows you to install and remove libraries very easily by using the npm package manager (and no, npm does not stand for "node package manager" anymore.)
+
+You will note we're using a couple of those under dependencies:
+- express: Express is the most popular HTML server for Node.js.
+- body-parser: An extension to express that handles parsing query strings and POST bodies.
+- morgan: An extension to express that logs all requests to the console.
+- mysql: A library that streamlines connecting to MySQL-based RDBMS.
+
+You'll also note that nodemon is under devDependencies. That is because nodemon is only required when developing the application and not when running it.
+
+## controllers/*.js
+Controllers are typically pieces of code and classes that interact with data.
+
+## routes/*.js
+These are the API endpoints you are going to create. For now, there is just an index.js, but most serious projects have multiple. The index.js is typically responsible for including other files.
+
+Routes use the controllers to access and process data.
+
+## app.js
+This is the entry point of the application. It imports the app's other modules and starts the server that listens on a particular port. It will route calls to API endpoints to routes appropriately.
 
 # License, Acknowledgment
-MIT License, see 'LICENSE'.
+MIT License, see "LICENSE".
 
 Original code Copyright (c) 2019 Ali Khaled
 

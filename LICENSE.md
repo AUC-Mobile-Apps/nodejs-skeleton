@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2019 Ali Khaled, Mohamed Gaber
+Copyright (c) 2019-2020 Ali Khaled, Mohamed Gaber
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
