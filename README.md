@@ -16,6 +16,8 @@ This is designed for a Mobile Applications course. If you want a more in-depth i
     * MariaDB is a version of MySQL maintained by the original creator with more features.
 * Node.js with NPM
 
+Make sure you uninstall any previous versions of Git, MySQL or Node.js if you follow these instructions.
+
 ## Windows
 First, we install the [chocolatey](https://chocolatey.org) package manager. This allows you to install dependencies in a similar fashion to *apt-get* on Linux.
 
@@ -98,10 +100,10 @@ npm run dev
 
 You can then visit http://localhost:3000/health in your web browser or GET it via Postman to verify it works.
 
-## Connecting to the database via terminal
+### Connecting to the database via terminal
 
 ```bash
-mysql -u root -p
+mysql -u root -p password
 ```
 
 Then write your password (which is "password" by default.)

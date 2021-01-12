@@ -75,11 +75,11 @@ router.get("/countrycodes", function (req, res) {
         if (err) {
             res.send(err);
         } else {
-            for (let i = 0; i < result.length; i++) {
-                // You can do some processing on the data
-                result[i]["name_length"] = result[i].length;
-            }
-            return res.send(result);
+            let myResult = {
+                "result": result,
+                "rows": result.length
+            };
+            return res.send(myResult);
         }
     });
 });
