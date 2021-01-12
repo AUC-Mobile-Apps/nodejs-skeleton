@@ -22,6 +22,9 @@ First, we install the [chocolatey](https://chocolatey.org) package manager. This
 To install it, open PowerShell as Administrator, (PLEASE DON'T USE CMD UNDER ANY CIRCUMSTANCE) and then type:
 ```powershell
 Set-ExecutionPolicy AllSigned
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
 ```
 
