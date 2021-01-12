@@ -1,6 +1,7 @@
 FLUSH PRIVILEGES;
 ALTER USER "root"@"localhost" IDENTIFIED BY "password";
 Create database my_database;
+Use my_database;
 
 Create table Country(
     id int AUTO_INCREMENT,
@@ -10,7 +11,6 @@ Create table Country(
 );
 
 Insert into Country values
-    ("Egypt", "EG"),
-    ("United States", "US")
+    (null, "Egypt", "EG"),
+    (null, "United States", "US")
     ;
-    
