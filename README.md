@@ -23,18 +23,14 @@ First, we install the [chocolatey](https://chocolatey.org) package manager. This
 
 To install it, open PowerShell as Administrator, (PLEASE DON'T USE CMD UNDER ANY CIRCUMSTANCE) and then type:
 ```powershell
-Set-ExecutionPolicy AllSigned
-
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
 Sometimes it may ask you for permissions again. Just type "A" and press enter.
 
 Run these in Powershell as Administrator:
 ```powershell
-choco install nodejs-lts mariadb git
+choco install -y nodejs-lts mariadb git
 ```
 
 Then **restart your computer**.
