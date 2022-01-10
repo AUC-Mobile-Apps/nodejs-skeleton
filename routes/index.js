@@ -18,11 +18,11 @@ router.post("/mypostapi", function (req, res) {
     db.query(sql, function (err, result) {
         console.log("Result: " + JSON.stringify(result));
         if (err) {
-            res.send(err);
+            return res.send(err);
         } else {
             let returnedObject = {};
             // Your code here
-            return res.result(returnedObject);
+            return res.json(returnedObject);
         }
     });
 });
@@ -35,12 +35,12 @@ router.get("/mygetapi", function (req, res) {
     db.query(sql, function (err, result) {
         console.log("Result: " + JSON.stringify(result));
         if (err) {
-            res.send(err);
+            return res.send(err);
         } else {
             let returnedObject = {};
             // Your code here 
             // You can use res.json(result); to send all data as a response 
-            return res.result(returnedObject);
+            return res.json(returnedObject);
         }
     });
 });
@@ -49,7 +49,7 @@ router.get("/mygetapi", function (req, res) {
 
 // Hello World
 router.get("/health", function (req, res) {
-    return res.send("ok");
+    return res.send("ok"); // For plain text, use res.send
 });
 
 // Basic Addition POST request
@@ -61,7 +61,7 @@ router.post("/add", function (req, res) {
 
     let result = num1 + num2;
 
-    return res.json({
+    return res.json({ // For JSON data, use res.json
         "result": result
     });
 });
@@ -73,15 +73,46 @@ router.get("/countrycodes", function (req, res) {
     db.query(sql, function (err, result) {
         console.log("Result: " + JSON.stringify(result));
         if (err) {
-            res.send(err);
+            return res.send(err);
         } else {
+            let countriesWithTwoWords = 0;
+            for (let i = 0; i < result.length; i++) {
+                let countryName = result[i].name;
+                let countryWords = countryName.split(" ");
+                let countryWordCount = countryWords.length;
+                if (countryWordCount == 2) {
+                    countriesWithTwoWords += 1;
+                }
+            }
             let myResult = {
                 "result": result,
-                "rows": result.length
+                "rows": result.length,
+                "countriesWithTwoWords": countries_with_two_words
             };
             return res.send(myResult);
         }
     });
+});
+
+router.post("/newcountry", function(req, res) {
+    let body = req.body;
+    
+    let name = body.name;
+    let code = body.code;
+    
+    let sql = `
+        Insert into Country values
+            (null, "${name}", "${code}")
+        ;
+    `;
+    db.query(sql, function (err, result) {
+        console.log("Result: " + JSON.stringify(result));
+        if (err) {
+            return res.send(err);
+        } else {
+            return res.json(result);
+        }
+    });   
 });
 
 // Export the created router
