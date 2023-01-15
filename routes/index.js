@@ -77,17 +77,18 @@ router.get("/countrycodes", function (req, res) {
         } else {
             let countriesWithTwoWords = 0;
             for (let i = 0; i < result.length; i++) {
-                let countryName = result[i].name;
-                let countryWords = countryName.split(" ");
-                let countryWordCount = countryWords.length;
-                if (countryWordCount == 2) {
-                    countriesWithTwoWords += 1;
+                let country = result[i];
+                let name = country.name;
+                let words = name.split(" ");
+                let wordCount = words.length;
+                if (wordCount == 2) {
+                    countriesWithTwoWords++;
                 }
             }
             let myResult = {
                 "result": result,
                 "rows": result.length,
-                "countriesWithTwoWords": countries_with_two_words
+                "countriesWithTwoWords": countriesWithTwoWords
             };
             return res.send(myResult);
         }

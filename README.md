@@ -22,6 +22,7 @@ Make sure you uninstall any previous versions of Git, MySQL or Node.js if you fo
 First, we install the [chocolatey](https://chocolatey.org) package manager. This allows you to install dependencies in a similar fashion to *apt-get* on Linux.
 
 To install it, open PowerShell as Administrator, (PLEASE DON'T USE CMD UNDER ANY CIRCUMSTANCE) and then type:
+
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
@@ -99,10 +100,10 @@ npm run dev
 
 You can then visit http://localhost:3000/health in your web browser or GET it via Postman to verify it works.
 
-### Connecting to the database via terminal
+### Connecting to the database via your terminal
 
 ```bash
-mysql -u root -p password
+mysql -u root -p my_database
 ```
 
 Then write your password (which is "password" by default.)
@@ -136,6 +137,9 @@ Routes use the controllers to access and process data.
 
 ## app.js
 This is the entry point of the application. It imports the app's other modules and starts the server that listens on a particular port. It will route calls to API endpoints to routes appropriately.
+
+# Note
+You can connect to your server normally in Android Studio, however you will need to replace `localhost` with `10.0.2.2`, but otherwise, it is identical to using any other API on Android.
 
 # License, Acknowledgment
 MIT License, see "LICENSE".
