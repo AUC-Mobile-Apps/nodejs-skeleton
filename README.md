@@ -4,9 +4,9 @@ This is a simple API skeleton for a Node.js/MySQL-based applications.
 This is designed for a Mobile Applications course. If you want a more in-depth introduction to backend development, this will not be sufficient and I recommend one of the other million on the internet.
 
 # Recommended Applications
-* Get [Postman](https://www.getpostman.com/downloads/).
+* [Postman](https://www.getpostman.com/downloads/)
     * Available on all platforms. Postman allows you to test your API endpoints thoroughly and without a frontend application or a web browser.
-* Get [Visual Studio Code](https://code.visualstudio.com).
+* [Visual Studio Code](https://code.visualstudio.com)
     * Available on Windows, Mac and Linux, VS Code is a powerful text editor with an integrated terminal and a ton of features for working with Node.js-based servers. Most Node.js developers swear by it, myself and the original creator of this codebase included.
     * Some people also like Atom, Sublime Text, Vim… Figure out what works for you.
 
@@ -30,7 +30,7 @@ Sometimes it may ask you for permissions again. Just type "A" and press enter.
 
 Run these in Powershell as Administrator:
 ```powershell
-choco install -y nodejs-lts mariadb git
+choco install -y nodejs-lts mariadb git vscode postman
 ```
 
 Then **restart your computer**.
@@ -47,7 +47,8 @@ After the installation is done:
 
 ```bash
 brew install mariadb node
-# This command launches MySQL
+brew install --cask visual-studio-code postman
+# The following command launches MySQL
 brew services start mariadb
 ```
 
@@ -59,7 +60,7 @@ sudo apt-get update
 sudo apt-get install nodejs npm mariadb-client mariadb-server git
 ```
 
-That's it!
+Then install VS Code/Postman from their respective websites.
 
 On some versions of Linux, if the command `node` doesn't work, you may need to do this:
 
@@ -83,8 +84,10 @@ cd nodejs-api-skeleton
 # Install package dependencies
 npm install
 # Setup Database
-sudo mysql -u root # Linux/macOS
-mysql -u root # Windows
+## If you're on Linux or macOS:
+sudo mysql -u root
+## If you're on Windows:
+mysql -u root
 ```
 
 Then copy and paste the contents of `Database.sql` into the mysql prompt, press return, then Ctrl+D to exit.
